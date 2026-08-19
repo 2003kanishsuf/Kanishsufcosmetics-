@@ -3,137 +3,357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanish Suf Cosmetics</title>
+    <title>Kanishsuf Cosmetics - Product Catalog & Orders</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #fcfbf9;
+            color: #2c2c2c;
+            line-height: 1.6;
         }
         header {
-            background-color: #e91e63;
-            color: white;
-            padding: 30px 20px;
+            background-color: #831843;
+            color: #ffffff;
             text-align: center;
+            padding: 30px 15px;
         }
         header h1 {
-            margin: 0;
-            font-size: 2.2em;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
         header p {
+            font-size: 1rem;
+            opacity: 0.9;
             margin-top: 5px;
-            font-size: 1.1em;
         }
         .container {
-            padding: 20px;
-            max-width: 900px;
-            margin: 0 auto;
+            max-width: 1050px;
+            margin: 25px auto;
+            padding: 0 15px;
         }
-        .section-title {
-            text-align: center;
-            margin-top: 30px;
+        .category {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+            border: 1px solid #f3e8ff;
+        }
+        .category-title {
+            color: #831843;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #fbcfe8;
+            padding-bottom: 8px;
             margin-bottom: 20px;
-            color: #e91e63;
+            text-transform: uppercase;
         }
         .product-grid {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
-            justify-content: center;
         }
         .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 280px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-            padding-bottom: 15px;
+            border: 1px solid #f3f4f6;
+            border-radius: 6px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #fafafa;
         }
         .product-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 180px;
+            object-fit: contain;
+            background-color: #ffffff;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            border: 1px solid #f1f1f1;
         }
-        .product-card h3 {
-            margin: 15px 0 5px 0;
+        .product-name {
+            font-weight: bold;
+            font-size: 0.98rem;
+            color: #1f2937;
+            margin-bottom: 6px;
         }
-        .product-card p {
-            padding: 0 15px;
-            color: #666;
-            font-size: 0.9em;
+        .product-desc {
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-bottom: 15px;
+            flex-grow: 1;
         }
-        .whatsapp-btn {
-            display: inline-block;
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px dashed #e5e7eb;
+        }
+        .price {
+            font-weight: bold;
+            color: #9d174d;
+            font-size: 0.95rem;
+        }
+        .btn-order {
             background-color: #25d366;
             color: white;
-            padding: 10px 15px;
             text-decoration: none;
-            border-radius: 5px;
+            padding: 7px 14px;
+            border-radius: 4px;
+            font-size: 0.85rem;
             font-weight: bold;
-            margin: 5px;
-            font-size: 0.85em;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-order:hover {
+            background-color: #128c7e;
         }
         footer {
-            background-color: #222;
+            background-color: #1e1b4b;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 30px 15px;
             margin-top: 40px;
         }
-        .social-links a {
-            color: #ff80ab;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
+        footer h3 {
+            color: #f472b6;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            margin-top: 12px;
+        }
+        .social-links span {
+            color: #cbd5e1;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Kanish Suf Cosmetics</h1>
-    <p>Premium Beauty & Care Products</p>
-</header>
+    <header>
+        <h1>Kanishsuf Cosmetics</h1>
+        <p>Official Product Catalog & WhatsApp Ordering</p>
+    </header>
 
-<div class="container">
-    <h2 class="section-title">Our Featured Products</h2>
-    
-    <div class="product-grid">
-        <!-- Product 1 -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200?text=Perfume" alt="Perfume">
-            <h3>Luxury Perfume</h3>
-            <p>Long-lasting fragrance designed for elegance.</p>
-            <a href="https://wa.me/256742350513" class="whatsapp-btn" target="_blank">Order Line 1</a>
-            <a href="https://wa.me/256786322661" class="whatsapp-btn" target="_blank">Order Line 2</a>
+    <div class="container">
+
+        <!-- 1. VASELINE GEL OILS -->
+        <div class="category">
+            <h2 class="category-title">Vaseline Gel Oils & Glow Range</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <img src="vaseline_cocoa_gel.jpg" alt="Vaseline Cocoa Gel Oil">
+                    <div class="product-name">Vaseline Intensive Care Cocoa Radiant Body Gel Oil (200ml)</div>
+                    <div class="product-desc">Made with 100% pure cocoa butter and replenishing oils. Deeply hydrates and locks in moisture for a warm, natural radiance.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Vaseline%20Cocoa%20Radiant%20Body%20Gel%20Oil" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="vaseline_vitamin_b3.jpg" alt="Vaseline Vitamin B3 Oil">
+                    <div class="product-name">Vaseline Intensive Care Vitamin B3 Body Oil (200ml)</div>
+                    <div class="product-desc">Lightweight nourishing body oil enriched with Vitamin B3 (Niacinamide). Restores healthy glow and promotes an even tone.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Vaseline%20Vitamin%20B3%20Body%20Oil" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="vaseline_golden_glow.jpg" alt="Vaseline Golden Hour Glow">
+                    <div class="product-name">Vaseline Glazed & Glisten Golden Hour Glow Gel Oil (200ml)</div>
+                    <div class="product-desc">Infused with ultra-hydrating lipids, pure cocoa butter, and vanilla fragrance. Leaves a bronzed shimmer and dewy finish.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Vaseline%20Golden%20Hour%20Glow" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200?text=Skincare" alt="Skincare">
-            <h3>Softening Lotion</h3>
-            <p>Gentle formula to keep your skin smooth and radiant.</p>
-            <a href="https://wa.me/256742350513" class="whatsapp-btn" target="_blank">Order Line 1</a>
-            <a href="https://wa.me/256786322661" class="whatsapp-btn" target="_blank">Order Line 2</a>
-        </div>
-    </div>
-</div>
+        <!-- 2. VASELINE HEALTHY BRIGHT -->
+        <div class="category">
+            <h2 class="category-title">Vaseline Healthy Bright / Daily Brightening Line</h2>
+            <div class="product-grid">
 
-<footer>
-    <p>&copy; 2026 Kanish Suf Cosmetics. All rights reserved.</p>
-    <p>Contact: +256 742 350513 / +256 786 322661</p>
-    <p>Official Site: <strong>kanishsufcosmetics.com</strong></p>
-    <div class="social-links">
-        <a href="#">Instagram</a> | 
-        <a href="#">Facebook</a> | 
-        <a href="#">TikTok</a>
+                <div class="product-card">
+                    <img src="vaseline_lotion_725ml.jpg" alt="Vaseline Daily Brightening Lotion">
+                    <div class="product-name">Vaseline Healthy Bright Daily Brightening Even Tone Lotion (725ml)</div>
+                    <div class="product-desc">Formulated with Niacinamide (Vitamin B3) and triple sunscreens to restore radiant skin and shield from damage.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Vaseline%20Daily%20Brightening%20Lotion%20725ml" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="vaseline_brightening_cream.jpg" alt="Vaseline Brightening Cream">
+                    <div class="product-name">Vaseline Healthy Bright Daily Brightening Even Tone Cream</div>
+                    <div class="product-desc">Rich moisturizing cream with concentrated Niacinamide designed for dry patches, hands, and targeted areas.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Vaseline%20Daily%20Brightening%20Cream" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="vaseline_soap.jpg" alt="Vaseline Soap">
+                    <div class="product-name">Vaseline Healthy Plus Vitamin B3 Bar Soap (75g)</div>
+                    <div class="product-desc">Gentle cleansing bar enriched with Vitamin B3 and Vaseline jelly. Leaves skin feeling soft and moisturized.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Vaseline%20Vitamin%20B3%20Soap" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 3. VEET GOLD -->
+        <div class="category">
+            <h2 class="category-title">Veet Gold Turmeric Super Whitening Collection</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <img src="veet_gold_cream.jpg" alt="Veet Gold Cream">
+                    <div class="product-name">Veet Gold Turmeric Super Whitening Body Cream (500g)</div>
+                    <div class="product-desc">Intense skin repair cream with turmeric essential oil. Targets pimples, dark spots, and hyperpigmentation.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Veet%20Gold%20Turmeric%20Body%20Cream" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="veet_gold_oil.jpg" alt="Veet Gold Oil">
+                    <div class="product-name">Veet Gold Turmeric Super Whitening Body Repair Oil (1000ml)</div>
+                    <div class="product-desc">100% natural herbal oil designed to clear dark knuckles, armpits, inner thighs, and stubborn age spots.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Veet%20Gold%20Turmeric%20Repair%20Oil" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="veet_gold_scrub.jpg" alt="Veet Gold Scrub">
+                    <div class="product-name">Veet Gold Turmeric Whitening Salt Body Scrub</div>
+                    <div class="product-desc">Exfoliating salt scrub that removes dead skin cells and unblocks pores for a smooth, glowing texture.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Veet%20Gold%20Turmeric%20Body%20Scrub" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 4. PURE EGYPTIAN MAGIC -->
+        <div class="category">
+            <h2 class="category-title">Pure Egyptian Magic Shower Creams (1000ml)</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <img src="egyptian_gold.jpg" alt="Egyptian Magic Gold">
+                    <div class="product-name">Pure Egyptian Magic Whitening Shower Cream – Gold 14-Days (1000ml)</div>
+                    <div class="product-desc">Advanced body wash with Kojic Acid and L-Glutathione for deep cleansing and spot reduction.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Pure%20Egyptian%20Magic%20Gold%20Shower%20Cream" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="egyptian_carrot.jpg" alt="Egyptian Magic Carrot">
+                    <div class="product-name">Pure Egyptian Magic Whitening Shower Cream – Carrot 14-Days (1000ml)</div>
+                    <div class="product-desc">Enriched with Carrot Extract, Vitamin C, and Kojic Acid to refine texture and boost natural brightness.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Pure%20Egyptian%20Magic%20Carrot%20Shower%20Cream" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="egyptian_lemon.jpg" alt="Egyptian Magic Lemon">
+                    <div class="product-name">Pure Egyptian Magic Whitening Shower Cream – Lemon 14-Days (1000ml)</div>
+                    <div class="product-desc">Formulated with refreshing Lemon Extract and Vitamin E to balance skin tone and gently exfoliate.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Pure%20Egyptian%20Magic%20Lemon%20Shower%20Cream" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 5. AMERICAN DREAM TRIO -->
+        <div class="category">
+            <h2 class="category-title">American Dream & Egyptian Magic Brightening Trio</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <img src="american_dream_oil.jpg" alt="American Dream Oil">
+                    <div class="product-name">American Dream Cocoa Butter Lemon Body Oil</div>
+                    <div class="product-desc">Non-greasy tone correcting body oil with Lemon Oil, Kojic Acid, and Liquorice for dark spot reduction.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20American%20Dream%20Cocoa%20Butter%20Lemon%20Body%20Oil" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="american_dream_cream.jpg" alt="American Dream Cream">
+                    <div class="product-name">American Dream Cocoa Butter Lemon Cream</div>
+                    <div class="product-desc">Rich moisturizing body cream formulated with pure cocoa butter, lemon essential oil, and Vitamin E.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20American%20Dream%20Cocoa%20Butter%20Lemon%20Cream" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="egyptian_serum.jpg" alt="Egyptian Serum">
+                    <div class="product-name">Egyptian Magic Whitening Milk Serum (50ml)</div>
+                    <div class="product-desc">Concentrated serum with pure Argan Oil and SPF 15 protection to clarify complexions and fade blemishes.</div>
+                    <div class="card-footer">
+                        <span class="price">UGX Contact</span>
+                        <a href="https://wa.me/256742350513?text=Hello%20Kanishsuf%20Cosmetics,%20I%20am%20interested%20in%20Egyptian%20Magic%20Whitening%20Milk%20Serum" class="btn-order" target="_blank">Order</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-</footer>
+
+    <footer>
+        <h3>Order & Contact Details</h3>
+        <p>WhatsApp / Call: 0742 350513</p>
+        <div class="social-links">
+            <span><strong>TikTok:</strong> @kanishsufcosmetics</span>
+            <span><strong>Instagram:</strong> @kanishsufcosmetics</span>
+            <span><strong>Facebook:</strong> kanishsufcosmetics</span>
+        </div>
+    </footer>
 
 </body>
 </html>
+
 
 
